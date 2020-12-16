@@ -30,9 +30,10 @@ G.add_edge('E','G',weigth=pos_node[9],label=f'w:{pos_node[9]}')
 G.add_edge('G','F',weigth=pos_node[10],label=f'w:{pos_node[10]}')
 
 p = nx.shortest_path(G, source='B', weight='weight')
+p2 = nx.shortest_path(G, source='A', weight='weight')
 
-print(p['D'])
 print(p['E'])
+print(p['F'])
 
 M=nx.MultiDiGraph(G)
 
@@ -46,7 +47,7 @@ for i in p2['F']:
 	if x != 1:
 		M.add_edge(p2[i][-1],p2[i][-2],color='blue')
 	x=0
-
+x=1
 
 filename = "nx_sp"
 nx.drawing.nx_pydot.write_dot(M, filename + ".dot")
