@@ -36,8 +36,17 @@ print(p['E'])
 
 M=nx.MultiDiGraph(G)
 
-M.add_edge(p['D'][-1],p['D'][-2],color='red')
-M.add_edge(p['E'][-1],p['E'][-2],color='red')
+x=1
+for i in p['E']:
+	if x != 1:
+		M.add_edge(p[i][-1],p[i][-2],color='red')
+	x=0
+x=1
+for i in p2['F']:
+	if x != 1:
+		M.add_edge(p2[i][-1],p2[i][-2],color='blue')
+	x=0
+
 
 filename = "nx_sp"
 nx.drawing.nx_pydot.write_dot(M, filename + ".dot")
